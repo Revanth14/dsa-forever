@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Java build outputs
+*.class
+*.jar
+
+# VS Code build output
+.vscode
+
+# runtime output
+output.txt
+
+# input file
+input.txt
