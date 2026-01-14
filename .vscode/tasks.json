@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Java: compile & run (input.txt -> output.txt)",
+      "type": "shell",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "set -euo pipefail; cd \"${workspaceFolder}\"; OUT=\".vscode/out\"; mkdir -p \"$OUT\"; FILE=\"${file}\"; CLASS=\"${fileBasenameNoExtension}\"; PKG=$(grep -m1 \"^package[[:space:]]\" \"$FILE\" | sed \"s/^package[[:space:]]*//; s/;//; s/[[:space:]]//g\" || true); if [ -n \"$PKG\" ]; then MAIN=\"$PKG.$CLASS\"; else MAIN=\"$CLASS\"; fi; javac -d \"$OUT\" \"$FILE\"; java -cp \"$OUT\" \"$MAIN\" < input.txt > output.txt"
+      ],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$javac",
+      "presentation": { "reveal": "never", "panel": "dedicated" }
+    },
+    {
+      "label": "Java: clean",
+      "type": "shell",
+      "command": "bash",
+      "args": ["-lc", "rm -rf \"${workspaceFolder}/.vscode/out\""],
+      "group": { "kind": "build", "isDefault": false }
+    }
+  ]
+}

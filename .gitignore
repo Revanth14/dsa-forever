@@ -6,7 +6,7 @@
 *.jar
 
 # VS Code build output
-.vscode
+.vscode/out/
 
 # runtime output
 output.txt
