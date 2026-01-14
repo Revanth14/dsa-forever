@@ -7,7 +7,7 @@
       "command": "bash",
       "args": [
         "-lc",
-        "set -euo pipefail; cd \"${workspaceFolder}\"; OUT=\".vscode/out\"; mkdir -p \"$OUT\"; FILE=\"${file}\"; CLASS=\"${fileBasenameNoExtension}\"; PKG=$(grep -m1 \"^package[[:space:]]\" \"$FILE\" | sed \"s/^package[[:space:]]*//; s/;//; s/[[:space:]]//g\" || true); if [ -n \"$PKG\" ]; then MAIN=\"$PKG.$CLASS\"; else MAIN=\"$CLASS\"; fi; javac -d \"$OUT\" \"$FILE\"; java -cp \"$OUT\" \"$MAIN\" < input.txt > output.txt"
+        "set -euo pipefail; cd \"${workspaceFolder}\"; OUT=\".vscode/out\"; mkdir -p \"$OUT\"; FILE=\"${file}\"; CLASS=\"${fileBasenameNoExtension}\"; PKG=$(grep -m1 \"^package[[:space:]]\" \"$FILE\" | sed \"s/^package[[:space:]]*//; s/;//; s/[[:space:]]//g\" || true); if [ -n \"$PKG\" ]; then MAIN=\"$PKG.$CLASS\"; else MAIN=\"$CLASS\"; fi; javac -d \"$OUT\" \"$FILE\"; java -cp \"$OUT\" \"$MAIN\" < input.txt > output.txt 2>&1"
       ],
       "group": { "kind": "build", "isDefault": true },
       "problemMatcher": "$javac",
